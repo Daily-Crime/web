@@ -7,6 +7,7 @@ export const App = (): JSX.Element => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/web" element={<Home />} />
         <Route element={'/'} />
       </Routes>
     </BrowserRouter>
