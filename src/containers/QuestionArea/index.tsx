@@ -24,10 +24,12 @@ export const QuestionArea = (props: Props) => {
     initialStory,
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onChange = (event: any) => {
     setInput(event.target.value);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onKeyDown = (event: any) => {
     if (event.key !== 'Enter') return;
     handleSend();

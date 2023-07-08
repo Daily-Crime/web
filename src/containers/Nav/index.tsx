@@ -12,6 +12,7 @@ export const Nav = () => {
     else setThemeType('light');
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleTokenChange = (event: any) => {
     setToken(event.target.value);
   };

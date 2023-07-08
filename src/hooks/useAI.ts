@@ -43,6 +43,7 @@ const getAnswer = async (
 ) => {
   try {
     const data = await fetch(URL, getOptions(input, initialStory, token));
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const response = (await data.json()) as any;
     return response.message;
   } catch (error) {
