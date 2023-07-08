@@ -1,0 +1,27 @@
+{
+	"env": {
+		"node": true
+	},
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+		  "jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	  },
+	"plugins": ["@typescript-eslint", "prettier"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"eslint-config-prettier",
+		"prettier"
+	],
+	"rules": {
+		"prettier/prettier": "warn",
+		"no-useless-escape": "off",
+    "@typescript-eslint/ban-ts-comment": "warn"
+	}
+}

@@ -1,0 +1,62 @@
+{
+  "name": "cra-with-setup-template",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "env HOST=0.0.0.0 react-app-rewired start",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "echo TODO"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^4.24.6",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "^5.0.1",
+    "styled-components": "^5.3.6",
+    "typescript": "^4.9.5",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/parser": "^5.52.0",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.4",
+    "react-app-rewired": "^2.2.1"
+  },
+  "resolutions": {
+    "@types/react": "^18.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
