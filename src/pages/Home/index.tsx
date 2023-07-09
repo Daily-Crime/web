@@ -42,4 +42,5 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   padding: 24px;
+  gap: 2em;
 `;

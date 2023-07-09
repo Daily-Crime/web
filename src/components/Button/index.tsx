@@ -35,9 +35,9 @@ const StyledButton = styled.button<{
   isIconOnly: boolean;
   disabled: boolean;
 }>`
-  height: 50px;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   border: none;
+  box-sizing: border-box;
   text-transform: uppercase;
   font-size: 1.3em;
   color: ${({ theme }) => theme.primaryText};

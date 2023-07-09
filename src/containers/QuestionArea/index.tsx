@@ -5,6 +5,8 @@ import { useAI } from 'hooks/useAI';
 import { Button, Icon, Input } from 'components';
 import { useAppContext } from 'context';
 
+import story from 'data/story_23-07-09.json';
+
 type Props = {
   finalInput: string;
   setFinalInput: (finalInput: string) => void;
@@ -16,12 +18,9 @@ export const QuestionArea = (props: Props) => {
   const { theme, token } = useAppContext();
   const [input, setInput] = useState<string>('');
 
-  const initialStory =
-    'Story: Jack and Judy were two goldfish that swam in a small, round aquarium placed on a shelf. The shelf was hanging on a wall about two meters above the floor. One afternoon, a cat sneaked into the room through the window. He jumped on the shelf where the aquarium was placed and accidentally pushed the aquarium. It was not on purpose. Aquarium fell off the shelf and shattered against the ground. Since there was nobody home, no one could help the goldfish and they died a few minutes later because of suffocation.';
-
   const { answer } = useAI({
     question: finalInput,
-    initialStory,
+    initialStory: story.initialStory,
   });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -53,29 +52,32 @@ export const QuestionArea = (props: Props) => {
 
   return (
     <Wrapper>
-      <Input
-        onChange={onChange}
-        onKeyDown={onKeyDown}
-        value={input}
-        placeholder="Your question..."
-        theme={theme}
-      />
-      <Button
-        onClick={handleSend}
-        label="Send"
-        disabled={!token}
-        title={!token ? 'You need to provide an API token' : ''}
-      />
+      <StoryPrompt>{story.prompt}</StoryPrompt>
+      <InputArea>
+        <Input
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+          value={input}
+          placeholder="Your question..."
+          theme={theme}
+        />
+        <Button
+          onClick={handleSend}
+          label="Send"
+          disabled={!token}
+          title={!token ? 'You need to provide an API token' : ''}
+        />
+      </InputArea>
       <Suspense
         fallback={
-          <StyledAnswer>
+          <StyledAnswerType>
             <Icon icon="Spin" spin />
-          </StyledAnswer>
+          </StyledAnswerType>
         }>
         {
-          <StyledAnswer>
-            {isPending ? <Icon icon="Spin" spin /> : answer}
-          </StyledAnswer>
+          <StyledAnswerType>
+            {isPending ? <Icon icon="Spin" spin /> : <>🕵️: {answer}</>}
+          </StyledAnswerType>
         }
       </Suspense>
     </Wrapper>
@@ -86,9 +88,31 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
+  max-width: 600px;
 `;
 
-const StyledAnswer = styled.div`
-  width: 500px;
-  height: 50px;
+const StoryPrompt = styled.div`
+  font-family: 'Special Elite';
+  font-size: 1.5em;
+  text-align: center;
+`;
+
+const InputArea = styled.div`
+  display: flex;
+  flex: 1 1 100%;
+
+  & > input {
+    flex-grow: 1;
+  }
+
+  & > button {
+    width: 90px;
+  }
+`;
+
+const StyledAnswerType = styled.div`
+  /* display: flex;
+  align-items: center; */
+  font-size: 1.4em;
 `;
